@@ -48,7 +48,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         itemHolder.text_name.setText(item.name);
         if (item.genres.size() > 0) itemHolder.text_genre.setText(item.genres.get(0));
         if (item.images.size() > 0) Glide.with(itemHolder.itemView.getContext())
-                .load(item.images.get(0).url).into(itemHolder.image);
+                .load(item.images.get(2).url).into(itemHolder.image);
     }
 
     @Override

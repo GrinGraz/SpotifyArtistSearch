@@ -73,20 +73,28 @@ public class MainActivity extends BaseActivity implements MainMvpView, SearchVie
     public void onSearchOk(Artists artists) {
         this.artists = artists;
         if (artists.items.isEmpty()) {
-            textView.setVisibility(View.VISIBLE);
             textView.setText(R.string.empty_response);
-            mMainAdapter.setArtists(new ArrayList<Item>());
+            toggleVisibility(true);
         } else {
-            textView.setVisibility(View.INVISIBLE);
+            toggleVisibility(false);
             mMainAdapter.setArtists(artists.items);
         }
     }
 
     @Override
     public void onError() {
-        mMainAdapter.setArtists(new ArrayList<Item>());
-        textView.setVisibility(View.VISIBLE);
+        toggleVisibility(true);
         textView.setText(R.string.search_error);
+    }
+
+    public void toggleVisibility(boolean hideResults){
+        if (hideResults){
+            mRecyclerView.setVisibility(View.INVISIBLE);
+            textView.setVisibility(View.VISIBLE);
+        } else {
+            textView.setVisibility(View.INVISIBLE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -99,7 +107,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, SearchVie
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         artists = savedInstanceState.getParcelable("data");
-        mMainAdapter.setArtists(artists.items);
+        if (artists != null) {
+            mMainAdapter.setArtists(artists.items);
+        }
     }
 
     @Override

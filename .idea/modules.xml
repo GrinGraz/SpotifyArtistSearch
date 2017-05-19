@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpotifyArtistSearch.iml" filepath="$PROJECT_DIR$/SpotifyArtistSearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpotifyArtistSearch2.iml" filepath="$PROJECT_DIR$/SpotifyArtistSearch2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-app-emar.iml" filepath="$PROJECT_DIR$/base-app-emar.iml" />
     </modules>
